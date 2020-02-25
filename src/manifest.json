@@ -1,7 +1,7 @@
 {
-  "name": "new-tab-page",
-  "description": "A Vue.js web extension",
-  "version": null,
+  "name": "Dropkiq for Chrome",
+  "description": "Easily write Liquid expressions",
+  "version": 0.01,
   "permissions": ["declarativeContent", "storage"],
   "manifest_version": 2,
   "icons": {

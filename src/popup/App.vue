@@ -6,6 +6,8 @@
           <div class="form-group">
             <input v-model="expression" placeholder="Liquid Expression" class="form-control"></input>
           </div>
+        </div>
+        <div class="col-12 p-0">
           <button class="btn btn-secondary" :data-clipboard-text="expression">
             Copy
           </button>

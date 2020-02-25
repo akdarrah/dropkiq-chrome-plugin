@@ -72,7 +72,7 @@ const config = {
       filename: '[name].css',
     }),
     new CopyPlugin([
-      { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
+      { from: 'icons', to: 'icons' },
       { from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
       { from: 'popup/bootstrap.min.js', to: 'popup/bootstrap.min.js' },
       { from: 'popup/bootstrap.min.css', to: 'popup/bootstrap.min.css' },
