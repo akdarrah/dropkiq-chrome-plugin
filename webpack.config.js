@@ -74,6 +74,10 @@ const config = {
     new CopyPlugin([
       { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
       { from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
+      { from: 'popup/bootstrap.min.js', to: 'popup/bootstrap.min.js' },
+      { from: 'popup/bootstrap.min.css', to: 'popup/bootstrap.min.css' },
+      { from: 'popup/jquery-3.2.1.slim.min.js', to: 'popup/jquery-3.2.1.slim.min.js' },
+      { from: 'popup/popper.min.js', to: 'popup/popper.min.js' },
       {
         from: 'manifest.json',
         to: 'manifest.json',
