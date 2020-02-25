@@ -78,6 +78,8 @@ const config = {
       { from: 'popup/bootstrap.min.css', to: 'popup/bootstrap.min.css' },
       { from: 'popup/jquery-3.2.1.slim.min.js', to: 'popup/jquery-3.2.1.slim.min.js' },
       { from: 'popup/popper.min.js', to: 'popup/popper.min.js' },
+      { from: 'popup/dropkiq.min.js', to: 'popup/dropkiq.min.js' },
+      { from: 'popup/dropkiq.css', to: 'popup/dropkiq.css' },
       {
         from: 'manifest.json',
         to: 'manifest.json',
