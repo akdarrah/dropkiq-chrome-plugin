@@ -4,7 +4,7 @@
       <div class="row p-2">
         <div class="col-12 p-0">
           <div class="form-group">
-            <input v-model="expression" @input="getResults($event)" placeholder="Liquid Expression" class="form-control" id="liquid-expression-field"></input>
+            <input v-model="expression" @click="getResults($event)" @keydown="getResults($event)" @focus="getResults($event)" placeholder="Liquid Expression" class="form-control" id="liquid-expression-field"></input>
           </div>
         </div>
         <div class="col-12 p-0">
