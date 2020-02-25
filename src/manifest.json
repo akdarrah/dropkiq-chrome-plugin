@@ -2,7 +2,7 @@
   "name": "new-tab-page",
   "description": "A Vue.js web extension",
   "version": null,
-  "permissions": ["storage"],
+  "permissions": ["declarativeContent", "storage"],
   "manifest_version": 2,
   "icons": {
     "48": "icons/icon_48.png",
@@ -11,9 +11,6 @@
   "browser_action": {
     "default_title": "new-tab-page",
     "default_popup": "popup/popup.html"
-  },
-  "chrome_url_overrides": {
-    "newtab": "tab/tab.html"
   },
   "background": {
     "scripts": [

@@ -1,13 +1,20 @@
 <template>
   <div>
-    <p>Hello world!</p>
+    <input v-model="expression" placeholder="edit me"></input>
+    <button class="btn" :data-clipboard-text="expression">
+      Copy
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   data () {
-    return {}
+    return {
+      expression: ""
+    }
+  },
+  methods: {
   }
 }
 </script>
