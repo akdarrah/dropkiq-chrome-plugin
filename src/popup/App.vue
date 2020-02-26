@@ -7,7 +7,7 @@
         </div>
         <div class="col-9 p-0 pt-1">
           <div class="form-group m-0">
-            <input autofocus v-model="expression" @click="getResults($event)" @keydown="getResults($event)" @focus="getResults($event)" placeholder="Liquid Expression" class="form-control no-border" id="liquid-expression-field"></input>
+            <input autofocus v-model="expression" placeholder="Liquid Expression" class="form-control no-border" id="liquid-expression-field"></input>
           </div>
         </div>
         <div class="col-2 p-0 pt-1 text-right">
@@ -186,13 +186,6 @@ export default {
     }
   },
   methods: {
-    getResults(e) {
-      // var cursorIndex = e.target.selectionStart;
-      // var text = e.target.value;
-      // var result = dropkiqEngine.update(text, cursorIndex);
-      // this.cursorIndex = e.target.selectionStart;
-      // chrome.extension.getBackgroundPage().console.log('getResults', this.cursorIndex);
-    }
   },
   mounted () {
     var $el = $('#liquid-expression-field', this.$el);
