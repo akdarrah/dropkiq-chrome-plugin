@@ -212,6 +212,12 @@ export default {
         $copyButton.click();
       }
     });
+
+    $copyButton.on('click', function(){
+      setTimeout(function(){
+        window.close();
+      }, 25);
+    });
   }
 }
 </script>
