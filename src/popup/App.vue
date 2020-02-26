@@ -129,7 +129,7 @@ var scope = {
 };
 
 var options = {};
-var licenseKey = "";
+var licenseKey = "be8a0250-3af8-0138-0a72-4a36325215e0";
 
 // Initialize the Standard DropkiqUI for demo elements
 // https://www.npmjs.com/package/dropkiq-ui
@@ -137,16 +137,26 @@ var dropkiqEngine = new DropkiqEngine("", 0, schema, context, scope, licenseKey)
 
 var substringMatcher = function(input) {
   return function findMatches(q, cb) {
-    var text = "{{" + input.value + "}}";
-    var cursorIndex = input.selectionStart + 2;
-    var result = dropkiqEngine.update(text, cursorIndex);
+    var text = input.value;
+    var cursorIndex = input.selectionStart;
+    var result = dropkiqEngine.update(("{{" + text + "}}"), (cursorIndex + 2));
 
     var strs, matches, substringRegex;
 
     // All possible match strings
+    var splitText = (text.length === 0 ? [] : text.split('.'));
+    var prePeriodPath = splitText.slice(0, -1);
+
     strs = result.suggestionsArray.map(function(suggestion){
-      return suggestion.name;
+      if(prePeriodPath.length){
+        var fullPath = prePeriodPath.concat(suggestion.name);
+        return fullPath.join(".");
+      } else {
+        return suggestion.name;
+      }
     });
+
+    chrome.extension.getBackgroundPage().console.log(strs);
 
     // an array that will be populated with substring matches
     matches = [];
