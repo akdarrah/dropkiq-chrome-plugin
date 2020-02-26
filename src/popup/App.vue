@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="col-2 p-0 pt-1 text-right">
-          <button class="btn btn-dropkiq" :data-clipboard-text="expression">
+          <button class="btn btn-dropkiq" id="copy-button" :data-clipboard-text="expression">
             Copy
           </button>
         </div>
@@ -159,7 +159,7 @@ var substringMatcher = function(input) {
       }
     });
 
-    chrome.extension.getBackgroundPage().console.log(strs);
+    // chrome.extension.getBackgroundPage().console.log(strs);
 
     // an array that will be populated with substring matches
     matches = [];
@@ -203,6 +203,14 @@ export default {
     var that = this;
     $el.bind('typeahead:autocomplete', function(ev, suggestion){
       that.expression = suggestion;
+    });
+
+    var $copyButton = $('#copy-button', this.$el);
+    $el.keypress(function(event){
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if(keycode == '13'){
+        $copyButton.click();
+      }
     });
   }
 }
