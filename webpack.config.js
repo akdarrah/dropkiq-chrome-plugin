@@ -80,6 +80,8 @@ const config = {
       { from: 'popup/popper.min.js', to: 'popup/popper.min.js' },
       { from: 'popup/dropkiq.min.js', to: 'popup/dropkiq.min.js' },
       { from: 'popup/dropkiq.css', to: 'popup/dropkiq.css' },
+      { from: 'popup/typeahead.bundle.min.js', to: 'popup/typeahead.bundle.min.js' },
+      { from: 'popup/styles.css', to: 'popup/styles.css' },
       {
         from: 'manifest.json',
         to: 'manifest.json',
