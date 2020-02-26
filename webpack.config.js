@@ -82,6 +82,7 @@ const config = {
       { from: 'popup/dropkiq.css', to: 'popup/dropkiq.css' },
       { from: 'popup/typeahead.bundle.min.js', to: 'popup/typeahead.bundle.min.js' },
       { from: 'popup/styles.css', to: 'popup/styles.css' },
+      { from: 'popup/icon_128.png', to: 'popup/icon_128.png' },
       {
         from: 'manifest.json',
         to: 'manifest.json',

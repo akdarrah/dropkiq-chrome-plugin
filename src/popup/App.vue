@@ -2,12 +2,15 @@
   <div class="dropkiq-popup">
     <div class="container-fluid">
       <div class="row p-2">
-        <div class="col-12 p-0">
+        <div class="col-1 p-0 text-center">
+          <img src="icon_128.png" class="img-fluid dropkiq-logo p-2" alt="Dropkiq">
+        </div>
+        <div class="col-9 p-0 pt-1">
           <div class="form-group">
-            <input v-model="expression" @click="getResults($event)" @keydown="getResults($event)" @focus="getResults($event)" placeholder="Liquid Expression" class="form-control" id="liquid-expression-field"></input>
+            <input autofocus v-model="expression" @click="getResults($event)" @keydown="getResults($event)" @focus="getResults($event)" placeholder="Liquid Expression" class="form-control no-border" id="liquid-expression-field"></input>
           </div>
         </div>
-        <div class="col-12 p-0">
+        <div class="col-2 p-0 pt-1 text-right">
           <button class="btn btn-secondary" :data-clipboard-text="expression">
             Copy
           </button>
