@@ -32,3 +32,19 @@ input[type=number]:focus,
   border: 0;
   box-shadow: none !important; /* You may want to include this as bootstrap applies these styles too */
 }
+
+.btn-dropkiq {
+  background: #57A297;
+  color: white;
+
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.btn-dropkiq:hover {
+  background: #458179;
+  text-decoration: none !important;
+  color: white;
+}
