@@ -10,6 +10,9 @@ pre {
 .tt-menu {
   display: none !important;
 }
+.tt-hint {
+  color: #6c757d !important
+}
 
 /* https://stackoverflow.com/questions/48483925/how-to-remove-outline-in-bootstrap-4 */
 textarea:focus,
