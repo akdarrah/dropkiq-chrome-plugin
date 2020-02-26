@@ -135,9 +135,18 @@ var licenseKey = "";
 // https://www.npmjs.com/package/dropkiq-ui
 var dropkiqEngine = new DropkiqEngine("", 0, schema, context, scope, licenseKey);
 
-var substringMatcher = function(strs) {
+var substringMatcher = function(input) {
   return function findMatches(q, cb) {
-    var matches, substringRegex;
+    var text = "{{" + input.value + "}}";
+    var cursorIndex = input.selectionStart + 2;
+    var result = dropkiqEngine.update(text, cursorIndex);
+
+    var strs, matches, substringRegex;
+
+    // All possible match strings
+    strs = result.suggestionsArray.map(function(suggestion){
+      return suggestion.name;
+    });
 
     // an array that will be populated with substring matches
     matches = [];
@@ -157,17 +166,6 @@ var substringMatcher = function(strs) {
   };
 };
 
-var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-  'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-  'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-  'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-];
-
 export default {
   data () {
     return {
@@ -176,21 +174,24 @@ export default {
   },
   methods: {
     getResults(e) {
-      var cursorIndex = e.target.selectionStart;
-      var text = e.target.value;
-      var result = dropkiqEngine.update(text, cursorIndex);
-      chrome.extension.getBackgroundPage().console.log(result);
+      // var cursorIndex = e.target.selectionStart;
+      // var text = e.target.value;
+      // var result = dropkiqEngine.update(text, cursorIndex);
+      // this.cursorIndex = e.target.selectionStart;
+      // chrome.extension.getBackgroundPage().console.log('getResults', this.cursorIndex);
     }
   },
   mounted () {
-    $('#liquid-expression-field', this.$el).typeahead({
+    var $el = $('#liquid-expression-field', this.$el);
+
+    $el.typeahead({
       hint: true,
       highlight: true,
       minLength: 1
     },
     {
       name: 'states',
-      source: substringMatcher(states)
+      source: substringMatcher($el[0])
     });
   }
 }
