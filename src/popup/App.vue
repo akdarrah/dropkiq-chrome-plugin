@@ -199,6 +199,11 @@ export default {
       name: 'states',
       source: substringMatcher($el[0])
     });
+
+    var that = this;
+    $el.bind('typeahead:autocomplete', function(ev, suggestion){
+      that.expression = suggestion;
+    });
   }
 }
 </script>
