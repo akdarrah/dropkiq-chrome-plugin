@@ -1,7 +1,7 @@
 <template>
   <div class="dropkiq-popup">
     <div class="container-fluid">
-      <div class="row p-2">
+      <div class="row p-2 first-row">
         <div class="col-1 p-0 text-center">
           <img src="icon_128.png" class="img-fluid dropkiq-logo p-2" alt="Dropkiq">
         </div>
@@ -14,6 +14,18 @@
           <button class="btn btn-dropkiq" id="copy-button" :data-clipboard-text="expression">
             Copy
           </button>
+        </div>
+      </div>
+      <div class="row p-2 second-row">
+        <div class="col-12 p-0">
+          &rdsh;
+          &nbsp;
+          <span v-if="suggestion">
+            {{suggestion.preview}}
+          </span>
+          <span v-else>
+            No Suggestions Found
+          </span>
         </div>
       </div>
     </div>
@@ -138,7 +150,7 @@ var licenseKey = "be8a0250-3af8-0138-0a72-4a36325215e0";
 // https://www.npmjs.com/package/dropkiq-ui
 var dropkiqEngine = new DropkiqEngine("", 0, schema, context, scope, licenseKey);
 
-var substringMatcher = function(input) {
+var substringMatcher = function(input, vm) {
   return function findMatches(q, cb) {
     var text = input.value;
     var cursorIndex = input.selectionStart;
@@ -175,6 +187,14 @@ var substringMatcher = function(input) {
       }
     });
 
+    var match = matches[0];
+    if(match){
+      vm.suggestion = result.suggestionsArray.find(function(suggestion){
+        var name = match.split(".").pop();
+        return suggestion.name = name;
+      });
+    }
+
     cb(matches);
   };
 };
@@ -182,7 +202,8 @@ var substringMatcher = function(input) {
 export default {
   data () {
     return {
-      expression: ""
+      expression: "",
+      suggestion: null
     }
   },
   methods: {
@@ -197,7 +218,7 @@ export default {
     },
     {
       name: 'states',
-      source: substringMatcher($el[0])
+      source: substringMatcher($el[0], this)
     });
 
     var that = this;

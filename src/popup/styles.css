@@ -1,5 +1,5 @@
 input {
-  font-size: 20px !important;
+  font-size: 22px !important;
 }
 pre {
   display: none !important;
@@ -12,6 +12,14 @@ pre {
 }
 .tt-hint {
   color: #6c757d !important
+}
+
+.first-row {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.second-row {
+  background: #f9f9f9;
 }
 
 /* https://stackoverflow.com/questions/48483925/how-to-remove-outline-in-bootstrap-4 */
