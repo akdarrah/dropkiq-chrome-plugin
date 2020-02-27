@@ -7,7 +7,7 @@
         </div>
         <div class="col-9 p-0 pt-1">
           <div class="form-group m-0">
-            <input autofocus v-model="expression" placeholder="Liquid Expression" class="form-control no-border" id="liquid-expression-field"></input>
+            <input autofocus v-model="expression" @keydown="clearPreview()" placeholder="Liquid Expression" class="form-control no-border" id="liquid-expression-field"></input>
           </div>
         </div>
         <div class="col-2 p-0 pt-1 text-right">
@@ -211,6 +211,9 @@ export default {
     }
   },
   methods: {
+    clearPreview() {
+      this.preview = "";
+    }
   },
   mounted () {
     var $el = $('#liquid-expression-field', this.$el);
