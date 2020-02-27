@@ -59,3 +59,11 @@ input[type=number]:focus,
   text-decoration: none !important;
   color: white;
 }
+
+.dropkiq-question-mark {
+  width: 12px;
+  height: 13px;
+  position: absolute;
+  top: 3px;
+  right: 0;
+}

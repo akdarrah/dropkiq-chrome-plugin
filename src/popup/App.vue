@@ -26,6 +26,7 @@
           <span v-else>
             Preview Unavailable
           </span>
+          <img v-if="hint" src="question-circle.png" class="img-fluid dropkiq-question-mark" alt="Hint">
         </div>
       </div>
     </div>
@@ -194,8 +195,10 @@ var substringMatcher = function(input, vm) {
         var name = match.split(".").pop();
         return suggestion.name = name;
       });
+
       if(suggestion){
         vm.preview = suggestion.preview;
+        vm.hint = suggestion.hint;
       }
     }
 
@@ -207,12 +210,14 @@ export default {
   data () {
     return {
       expression: "",
-      preview: ""
+      preview: "",
+      hint: ""
     }
   },
   methods: {
     clearPreview() {
       this.preview = "";
+      this.hint = "";
     }
   },
   mounted () {

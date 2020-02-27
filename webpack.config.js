@@ -82,6 +82,7 @@ const config = {
       { from: 'popup/typeahead.bundle.min.js', to: 'popup/typeahead.bundle.min.js' },
       { from: 'popup/styles.css', to: 'popup/styles.css' },
       { from: 'popup/icon_128.png', to: 'popup/icon_128.png' },
+      { from: 'popup/question-circle.png', to: 'popup/question-circle.png' },
       {
         from: 'manifest.json',
         to: 'manifest.json',
