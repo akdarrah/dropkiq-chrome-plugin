@@ -188,6 +188,7 @@ var substringMatcher = function(input, vm) {
     });
 
     var match = matches[0];
+    chrome.extension.getBackgroundPage().console.log(result);
     if(match){
       vm.suggestion = result.suggestionsArray.find(function(suggestion){
         var name = match.split(".").pop();

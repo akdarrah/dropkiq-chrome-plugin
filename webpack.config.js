@@ -79,7 +79,6 @@ const config = {
       { from: 'popup/jquery-3.2.1.slim.min.js', to: 'popup/jquery-3.2.1.slim.min.js' },
       { from: 'popup/popper.min.js', to: 'popup/popper.min.js' },
       { from: 'popup/dropkiq.min.js', to: 'popup/dropkiq.min.js' },
-      { from: 'popup/dropkiq.css', to: 'popup/dropkiq.css' },
       { from: 'popup/typeahead.bundle.min.js', to: 'popup/typeahead.bundle.min.js' },
       { from: 'popup/styles.css', to: 'popup/styles.css' },
       { from: 'popup/icon_128.png', to: 'popup/icon_128.png' },
