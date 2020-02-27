@@ -20,11 +20,11 @@
         <div class="col-12 p-0">
           &rdsh;
           &nbsp;
-          <span v-if="suggestion">
-            {{suggestion.preview}}
+          <span v-if="preview">
+            {{ preview }}
           </span>
           <span v-else>
-            No Suggestions Found
+            Preview Unavailable
           </span>
         </div>
       </div>
@@ -187,13 +187,16 @@ var substringMatcher = function(input, vm) {
       }
     });
 
+    vm.preview = result.preview;
     var match = matches[0];
-    chrome.extension.getBackgroundPage().console.log(result);
     if(match){
-      vm.suggestion = result.suggestionsArray.find(function(suggestion){
+      let suggestion = result.suggestionsArray.find(function(suggestion){
         var name = match.split(".").pop();
         return suggestion.name = name;
       });
+      if(suggestion){
+        vm.preview = suggestion.preview;
+      }
     }
 
     cb(matches);
@@ -204,7 +207,7 @@ export default {
   data () {
     return {
       expression: "",
-      suggestion: null
+      preview: ""
     }
   },
   methods: {
