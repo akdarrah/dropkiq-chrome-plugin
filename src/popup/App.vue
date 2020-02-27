@@ -26,7 +26,7 @@
           <span v-else>
             Preview Unavailable
           </span>
-          <img v-if="hint" src="question-circle.png" class="img-fluid dropkiq-question-mark" alt="Hint">
+          <img v-show="hint" src="question-circle.png" class="img-fluid dropkiq-question-mark" alt="Hint" :data-tippy-content="hint">
         </div>
       </div>
     </div>
@@ -151,7 +151,7 @@ var licenseKey = "be8a0250-3af8-0138-0a72-4a36325215e0";
 // https://www.npmjs.com/package/dropkiq-ui
 var dropkiqEngine = new DropkiqEngine("", 0, schema, context, scope, licenseKey);
 
-var substringMatcher = function(input, vm) {
+var substringMatcher = function(input, vm, tippy) {
   return function findMatches(q, cb) {
     var text = input.value;
     var cursorIndex = input.selectionStart;
@@ -199,6 +199,7 @@ var substringMatcher = function(input, vm) {
       if(suggestion){
         vm.preview = suggestion.preview;
         vm.hint = suggestion.hint;
+        tippy.setContent(vm.hint);
       }
     }
 
@@ -222,6 +223,7 @@ export default {
   },
   mounted () {
     var $el = $('#liquid-expression-field', this.$el);
+    var tippyInstance = tippy('[data-tippy-content]');
 
     $el.typeahead({
       hint: true,
@@ -230,7 +232,7 @@ export default {
     },
     {
       name: 'states',
-      source: substringMatcher($el[0], this)
+      source: substringMatcher($el[0], this, tippyInstance[0])
     });
 
     var that = this;
