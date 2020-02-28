@@ -223,7 +223,9 @@ export default {
   },
   mounted () {
     var $el = $('#liquid-expression-field', this.$el);
-    var tippyInstance = tippy('[data-tippy-content]');
+    var tippyInstance = tippy('[data-tippy-content]', {
+      placement: "left-end"
+    });
 
     $el.typeahead({
       hint: true,
