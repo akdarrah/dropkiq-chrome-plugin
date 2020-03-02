@@ -85,6 +85,7 @@ const config = {
       { from: 'popup/styles.css', to: 'popup/styles.css' },
       { from: 'popup/icon_128.png', to: 'popup/icon_128.png' },
       { from: 'popup/question-circle.png', to: 'popup/question-circle.png' },
+      { from: 'popup/schema.js', to: 'popup/schema.js' },
       {
         from: 'manifest.json',
         to: 'manifest.json',
