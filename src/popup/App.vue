@@ -715,7 +715,13 @@ export default {
     $el.keypress(function(event){
       var keycode = (event.keyCode ? event.keyCode : event.which);
       if(keycode == '13'){
-        $copyButton.click();
+        if($(".tt-suggestion:first-child").length){
+          $(".tt-suggestion:first-child").trigger('click');
+          that.expression = $el.val();
+          $(".tt-suggestion").remove();
+        } else {
+          $copyButton.click();
+        }
       }
     });
 
