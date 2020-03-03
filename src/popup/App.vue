@@ -626,6 +626,10 @@ var substringMatcher = function(input, vm, tippy) {
     var cursorIndex = input.selectionStart;
     var result = dropkiqEngine.update(("{{" + text + "}}"), (cursorIndex + 2));
 
+    // This is what allows previews when there is no suggestion
+    // (for viewing with filters)
+    vm.preview = result.preview;
+
     var strs, matches, substringRegex;
 
     // All possible match strings
