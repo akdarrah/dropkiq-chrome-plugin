@@ -133,8 +133,8 @@ var context = {
     hint: "The settings object lets you access the settings of a store's published theme."
   },
   template: {
-    type: "ColumnTypes::String",
-    foreign_table_name: null,
+    type: "ColumnTypes::HasOne",
+    foreign_table_name: "templates",
     hint: "The template object returns the name of the template that is being used to render the current page, not including its .liquid file extension. As a best practice, it's recommended that you apply the template name as a CSS class on your HTML <body> tag."
   },
   theme: {
