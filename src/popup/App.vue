@@ -128,8 +128,8 @@ var context = {
     hint: "The scripts object returns information about a store's active scripts."
   },
   settings: {
-    type: "ColumnTypes::HasOne",
-    foreign_table_name: 'settings',
+    type: "ColumnTypes::YAML",
+    foreign_table_name: null,
     hint: "The settings object lets you access the settings of a store's published theme."
   },
   template: {
@@ -382,6 +382,36 @@ exampleLineItem = {
   id: 123
 }
 
+var exampleShippingMethod = {
+  handle: "product",
+  original_price: 12.99,
+  price: 7.89,
+  title: "International Shipping"
+}
+
+var exampleTaxLine = {
+  price: 25.00,
+  rate: 0.14,
+  rate_percentage: 14,
+  title: "GST"
+}
+
+var exampleTransaction = {
+  amount: 12.99,
+  created_at: Date.parse("2019-11-01 05:56:37 -0400"),
+  gateway: "Cash on Delivery (COD)",
+  id: 123,
+  kind: "authorization",
+  name: "c251556901.1",
+  payment_details: {
+    credit_card_company: "Visa",
+    credit_card_number: "•••• •••• •••• 1234"
+  },
+  receipt: "Example transaction receipt...",
+  status: "Success",
+  status_label: "Réussite"
+}
+
 var exampleCustomer;
 var exampleOrder = {
   attributes: [],
@@ -452,6 +482,12 @@ var exampleLocale = {
   name: "Canadian French",
   primary: false,
   root_url: "/fr-ca"
+}
+
+var exampleCurrency = {
+  name: "United States dollars",
+  iso_code: "USD",
+  symbol: "$"
 }
 
 var exampleShop = {
@@ -540,6 +576,17 @@ var exampleLinklist = {
   title: "Linklist"
 }
 
+var exampleRecommendations = {
+  performed: true,
+  products_count: 1,
+  products: [exampleProduct]
+}
+
+var exampleScripts = {
+  id: 123,
+  name: "Test Script Name"
+}
+
 // Test data that is used for the preview feature (optional)
 var scope = {
   canonical_url: "https://docksupply.co/products/dory-shoes",
@@ -557,7 +604,13 @@ var scope = {
   cart: exampleCart,
   collections: exampleCollection,
   linklists: exampleLinklist,
-  current_tags: ["One", "Two", "Three"]
+  current_tags: ["One", "Two", "Three"],
+  handle: "page",
+  recommendations: exampleRecommendations,
+  scripts: exampleScripts,
+  content_for_header: "\<script\>...\<\/script\>",
+  content_for_index: "<p>...</p>",
+  content_for_layout: "<p>...</p>"
 };
 
 var options = {};
