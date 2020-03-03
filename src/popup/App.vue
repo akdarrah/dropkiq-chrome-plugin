@@ -716,9 +716,9 @@ export default {
       var keycode = (event.keyCode ? event.keyCode : event.which);
       if(keycode == '13'){
         if($(".tt-suggestion:first-child").length){
-          $(".tt-suggestion:first-child").trigger('click');
-          that.expression = $el.val();
-          $(".tt-suggestion").remove();
+          var e = $.Event('keydown');
+          e.which = 9; // Simulate Tab
+          $el.trigger(e);
         } else {
           $copyButton.click();
         }
