@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="col-2 p-0 pt-1 text-right">
-          <button class="btn btn-dropkiq" id="copy-button" :data-clipboard-text="expression">
+          <button class="btn btn-dropkiq" id="copy-button" :data-clipboard-text="'{{ ' + expression + ' }}'">
             Copy
           </button>
         </div>
