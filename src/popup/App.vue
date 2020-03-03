@@ -440,6 +440,61 @@ exampleCustomer = {
   total_spent: 5.00
 }
 
+var examplePolicy = {
+  body: "The policy's body",
+  title: "A nice policy",
+  url: "/policies/shipping-policy"
+}
+
+var exampleLocale = {
+  endonym_name: "français canadien",
+  iso_code: "fr-CA",
+  name: "Canadian French",
+  primary: false,
+  root_url: "/fr-ca"
+}
+
+var exampleShop = {
+  address: exampleAddress,
+  collections_count: 1,
+  currency: "USD",
+  description: "A test store",
+  domain: "example.com",
+  email: "example@gmail.com",
+  enabled_currencies: [exampleCurrency],
+  enabled_payment_types: [],
+  metafields: [],
+  name: "Example Store",
+  password_message: "",
+  permanent_domain: ".myshopify.com",
+  phone: "3165678788",
+  policies: [examplePolicy],
+  privacy_policy: examplePolicy,
+  published_locales: [exampleLocale],
+  refund_policy: examplePolicy,
+  shipping_policy: examplePolicy,
+  terms_of_service: examplePolicy,
+  products_count: 1,
+  secure_url: "https://johns-apparel.com",
+  taxes_included: true,
+  url: "http://johns-apparel.com"
+}
+
+var exampleCart = {
+  attributes: {},
+  cart_level_discount_applications: [exampleDiscoutApplication],
+  currency: exampleCurrency,
+  discount_applications: [exampleDiscoutApplication],
+  item_count: 1,
+  items: [exampleLineItem],
+  items_subtotal_price: 85.00,
+  note: "Hope you like the gift, Kylea!",
+  original_total_price: 85.00,
+  total_discount: 5.00,
+  total_price: 80.00,
+  total_weight: 50.00
+}
+
 // Test data that is used for the preview feature (optional)
 var scope = {
   canonical_url: "https://docksupply.co/products/dory-shoes",
@@ -452,7 +507,9 @@ var scope = {
   page: examplePage,
   theme: exampleTheme,
   template: exampleTemplate,
-  blogs: [exampleBlog]
+  blogs: [exampleBlog],
+  shop: exampleShop,
+  cart: exampleCart
 };
 
 var options = {};
