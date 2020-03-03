@@ -88,7 +88,7 @@ var context = {
     hint: "The linklists object returns the set of the menus and links in your store. You can access a menu by calling its handle on the linklists object."
   },
   handle: {
-    type: "ColumnTypes::YAML",
+    type: "ColumnTypes::String",
     foreign_table_name: null,
     hint: "The handle object returns the handle of the page that is being viewed."
   },
@@ -221,7 +221,7 @@ var exampleProduct = {
   featured_image: exampleImage,
   featured_media: "",
   first_available_variant: { exampleVariant },
-  handle: {},
+  handle: "product",
   has_only_default_variant: true,
   id: 1,
   images: [exampleImage],
@@ -262,7 +262,7 @@ var exampleArticle = {
   created_at: Date.parse("2019-11-01 05:56:37 -0400"),
   excerpt: "Example Article content",
   excerpt_or_content: "Example Article content",
-  handle: {},
+  handle: 'article',
   id: 123,
   image: exampleImage,
   "moderated?": false,
@@ -277,7 +277,7 @@ var exampleArticle = {
 var examplePage = {
   author: "John Doe",
   content: "Sample page content",
-  handle: {},
+  handle: "page",
   id: 45,
   published_at: Date.parse("2019-11-01 05:56:37 -0400"),
   template_suffix: "contact",
@@ -319,7 +319,7 @@ var exampleBlog = {
   articles: [exampleArticle],
   articles_count: 1,
   "comments_enabled?": false,
-  handle: {},
+  handle: "blog",
   id: 1,
   "moderated?": false,
   next_article: exampleArticle,
@@ -495,6 +495,51 @@ var exampleCart = {
   total_weight: 50.00
 }
 
+var exampleCollection = {
+  all_products_count: 24,
+  all_tags: ["Bags"],
+  all_types: ["Accessories"],
+  all_vendors: ["Montezuma"],
+  current_type: 'Shirts',
+  current_vendor: 'ApparelCo',
+  default_sort_by: 'manual',
+  description: "The description of the collection",
+  handle: "page",
+  id: 12,
+  image: exampleImage,
+  next_product: exampleProduct,
+  previous_product: exampleProduct,
+  products: [exampleProduct],
+  products_count: 1,
+  published_at: Date.parse("2019-11-01 05:56:37 -0400"),
+  sort_by: "best-selling",
+  sort_options: [{value: "manual", name: 'Featured'}],
+  template_suffix: "no-price",
+  title: "Frontpage",
+  tags: ["New"],
+  url: "/collections/123"
+}
+
+var exampleLink = {
+  active: false,
+  child_active: false,
+  current: false,
+  child_current: false,
+  levels: 1,
+  links: [],
+  object: exampleProduct,
+  title: "Product Link",
+  type: "product_link",
+  url: "/products/123"
+}
+
+var exampleLinklist = {
+  handle: "product",
+  levels: 1,
+  links: [exampleLink],
+  title: "Linklist"
+}
+
 // Test data that is used for the preview feature (optional)
 var scope = {
   canonical_url: "https://docksupply.co/products/dory-shoes",
@@ -509,7 +554,10 @@ var scope = {
   template: exampleTemplate,
   blogs: [exampleBlog],
   shop: exampleShop,
-  cart: exampleCart
+  cart: exampleCart,
+  collections: exampleCollection,
+  linklists: exampleLinklist,
+  current_tags: ["One", "Two", "Three"]
 };
 
 var options = {};
