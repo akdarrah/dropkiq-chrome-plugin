@@ -1,7 +1,7 @@
 {
   "name": "Dropkiq for Chrome",
   "description": "Easily write Liquid expressions",
-  "version": 1.0.1,
+  "version": 1.01,
   "permissions": ["declarativeContent", "storage"],
   "manifest_version": 2,
   "icons": {
